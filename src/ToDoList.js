@@ -1,50 +1,60 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import main from './main.scss';
 
 const ToDoList = () => {
-    const [id = uuidv4(), value] = useState('')
-    const [addItem, setAddItem] = useState('');
-    const [list, setList] = useState([]);
-    const addListItem = (e) => {
-        e.preventDefault();
-        if(addItem.length > 0){
-            const item = [ id, value ] 
-            setList((item) => {
-                return [...list, addItem];
-            })
-            console.log(addItem, ' id = ' ,uuidv4());
-            setAddItem('');
-        } else {
-            alert('Please add a task')
-        }
+    const [items, setItems] = useState([]);
+    const [itemName, setItemName] = useState('');
+    const id = uuidv4();
+
+    const addItem = event => {
+        event.preventDefault();
+        setItems([
+            ...items,
+            {
+                id: id,
+                name: itemName
+            }
+        ]);
+        setItemName('')
     };
 
+    const ItemDisplay = () => {
+        return (
+            <p>You have {items.length} job(s) to do today</p>
+        )
+    }
+
     return (
-        <div>
-            <h1>Honey Do</h1>
-            <h4>You may think you can just relax today, but you have {list.length} things to do...</h4>
-            <h4>Better get started!</h4>
-            <ul>
-            {
-                    list.map((item) => {
-                        return (
-                            <ul key={uuidv4()}>
-                                <li>{item}</li>
-                            </ul>
-                        )
-                    })
-                }
-            </ul>
-                
-            <p>Oh, don't forget...</p>
-            <p></p>
-            <label>Add a task : </label>
-            <input type='text' value={addItem} onChange={(e) => setAddItem(e.target.value)}></input>
-            <button type='submit' onClick={addListItem}>Add</button>
+        <>
+            <div className='header'>
+                <h1>Honey-Do</h1>
+                <h3>Saturdays are for... whatever she asks you for:</h3>
+            </div>
+            <div className='form-container'>
             
-        </div>
-    )
-};
+            
+            <ItemDisplay className='itemDisplay'/>
+            <ul className='list'>
+            {items.map(item => (
+                <li key={item.id}>{item.name}</li>
+            ))}
+            </ul>
+            <form>
+                <label>
+                    <input 
+                        name='item'
+                        type='text'
+                        value={itemName}
+                        onChange={e => setItemName(e.target.value)}
+                    />
+                </label>
+            </form>
+            <button onClick={addItem}>Add</button>
+            </div>
+        </>
+    );
+}
             
             
    
