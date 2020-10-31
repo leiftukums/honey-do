@@ -23,6 +23,13 @@ const ToDoList = () => {
         return (
             <p>You have {items.length} job(s) to do today</p>
         )
+    };
+
+    const deleteItem = () => {
+        return (
+            items.id = ''
+        )
+        console.log('delete item')
     }
 
     return (
@@ -32,15 +39,14 @@ const ToDoList = () => {
                 <h3>Saturdays are for... whatever she asks you for:</h3>
             </div>
             <div className='form-container'>
-            
-            
             <ItemDisplay className='itemDisplay'/>
-            <ul className='list'>
-            {items.map(item => (
-                <li key={item.id}>{item.name}</li>
-            ))}
-            </ul>
-            <form>
+                <ul className='list'>
+                {items.map(item => (
+                    <li className='listItem'key={item.id} >{item.name}
+                    <button onClick={deleteItem}>done</button></li>
+                ))}
+                </ul>
+            <form className='form'>
                 <label>
                     <input 
                         name='item'
@@ -49,9 +55,12 @@ const ToDoList = () => {
                         onChange={e => setItemName(e.target.value)}
                     />
                 </label>
+                <button type='button' value='button' onClick={addItem}>Add</button>
             </form>
-            <button onClick={addItem}>Add</button>
             </div>
+            
+            
+            
         </>
     );
 }
