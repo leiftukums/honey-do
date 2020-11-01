@@ -25,11 +25,10 @@ const ToDoList = () => {
         )
     };
 
-    const deleteItem = () => {
-        return (
-            items.id = ''
-        )
-        console.log('delete item')
+    const deleteItem = (id) => {
+        const newList = items.filter((item) => item.id !== id);
+        setItems(newList);
+        console.log(newList)       
     }
 
     return (
@@ -43,7 +42,7 @@ const ToDoList = () => {
                 <ul className='list'>
                 {items.map(item => (
                     <li className='listItem'key={item.id} >{item.name}
-                    <button onClick={deleteItem}>done</button></li>
+                    <button onClick={() => deleteItem(item.id)}>done</button></li>
                 ))}
                 </ul>
             <form className='form'>
