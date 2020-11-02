@@ -13,22 +13,23 @@ const ToDoList = () => {
             ...items,
             {
                 id: id,
-                name: itemName
+                name: itemName,
             }
         ]);
-        setItemName('')
+        setItemName('');
     };
+    
 
     const ItemDisplay = () => {
         return (
-            <p>You have {items.length} job(s) to do today</p>
+            <p>You have {items.length} job(s) to do today:</p>
         )
     };
+    
 
     const deleteItem = (id) => {
         const newList = items.filter((item) => item.id !== id);
-        setItems(newList);
-        console.log(newList)       
+        setItems(newList);      
     }
 
     return (
