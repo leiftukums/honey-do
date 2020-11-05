@@ -7,9 +7,10 @@
 .header {
   font-size: 1.4rem;
   color: rgb(84, 160, 135);
+  letter-spacing: 3px;
   text-align: center;
   border-bottom: 1.5px solid rgb(84, 160, 135);
-  padding: auto auto 2em auto;
+  padding: 2em auto 2em auto;
   margin: 0 0 2em 0;
   background-image: url(./images/honeydo.jpg);
   background-repeat: no-repeat;
@@ -24,9 +25,10 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 1em;
 }
 .form-container {
-  width: 30%;
+  width: 35%;
   height: 40vh;
   border: 1.5px solid rgb(80, 139, 120);
   text-align: center;
@@ -42,4 +44,11 @@
   list-style-type: none;
   color: darkslategray;
   padding: 0.5rem;
+}
+.form input {
+  margin: 1em;
+}
+.form button {
+  display: block;
+  margin: auto;
 }

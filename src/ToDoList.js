@@ -42,7 +42,7 @@ const ToDoList = () => {
             <ItemDisplay className='itemDisplay'/>
                 <ul className='list'>
                 {items.map(item => (
-                    <li className='listItem'key={item.id} >{item.name}
+                    <li className='listItem' key={item.id} >{item.name}
                     <button onClick={() => deleteItem(item.id)}>done</button></li>
                 ))}
                 </ul>
