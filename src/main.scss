@@ -45,10 +45,24 @@
   color: darkslategray;
   padding: 0.5rem;
 }
+.listItem li {
+  margin-right: 1em;
+}
+.listItem button {
+  margin: auto auto auto 2em;
+}
 .form input {
   margin: 1em;
+  height: 2em;
+  width: 40%;
+  text-align: center;
+  text-transform: uppercase;
 }
-.form button {
-  display: block;
-  margin: auto;
+.form.form button {
+  width: 6em;
 }
+// .input .form button {
+//   display: block;
+//   margin: auto;
+//   width: 10em;
+// }
