@@ -53,7 +53,7 @@ const ToDoList = () => {
                         type='text'
                         value={itemName}
                         onChange={e => setItemName(e.target.value)}
-                        placeholder='Add Item'
+                        placeholder='Add A Job'
                     />
                 </label>
                 <button type='button' value='button' onClick={addItem}>Add</button>
