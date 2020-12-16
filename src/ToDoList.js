@@ -18,20 +18,15 @@ const ToDoList = () => {
         ]);
         setItemName('');
     };
-    
-
     const ItemDisplay = () => {
         return (
             <p>You have {items.length} job(s) to do today:</p>
         )
     };
-    
-
     const deleteItem = (id) => {
         const newList = items.filter((item) => item.id !== id);
         setItems(newList);      
     }
-
     return (
         <>
             <div className='header'>
